@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @user.number %>
+</p>
+
+<%= form_tag user_messages_path(@user), method: :post do %>
+	<%= text_area_tag :body, "", placeholder: "Enter a text message for #{@user.name}..." %></br>
+	<%= submit_tag "Send text", class:"btn btn-primary" %>
+<%end%>
+
+<%= link_to "Add to conference", user_calls_path(@user), method: :post %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
